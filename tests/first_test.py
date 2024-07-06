@@ -1,8 +1,6 @@
 from seleniumbase import BaseCase
 BaseCase.main(__name__, __file__)
 
-# 'Mozilla/5.0 (Linux; Android 13; Pixel 7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Mobile Safari/537.36'
-
 class TestSimpleLogin(BaseCase):
     def test_simple_login(self):
         self.open("https://twitch.tv")
