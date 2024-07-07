@@ -1,24 +1,22 @@
-from seleniumbase import BaseCase
+from support.base_test_case import BaseTestCase
+from support.pages.home_page import HomePage
+from support.pages.page import Page
 import time
 
-BaseCase.main(__name__, __file__)
+BaseTestCase.main(__name__, __file__)
 
 
-class TestSimpleLogin(BaseCase):
+class TestSimpleLogin(BaseTestCase):
     def test_simple_login(self):
         self.open("https://twitch.tv")
 
         # Accept cookies
-        self.wait_for_element("button[data-a-target='consent-banner-accept']")
-        self.click("button[data-a-target='consent-banner-accept']")
+        self.click(Page.accept_cookies_button)
 
-        self.click("[aria-label='Search']")
+        self.click(HomePage.search_button)
+        self.type(HomePage.search_input, "Starcraft II")
 
-        search_input_locator = "[placeholder='Search...']"
-        self.wait_for_element(search_input_locator)
-        self.type(search_input_locator, "Starcraft II")
-
-        self.click("[title='StarCraft II']")
+        self.click(Page.get_locator_by_title(topic="StarCraft II"))
         self.assert_text_visible("Follow")
 
         # Below this is still not working; need to fix
