@@ -15,6 +15,6 @@ All instructions below assume a working Python3 environment with pip installed. 
 
 Use the following command to run the test:
 
-```python
+```bash
 pytest tests/first_test.py --mobile --headed --demo --uc
 ```
