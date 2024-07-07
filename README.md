@@ -40,3 +40,8 @@ docker run -it sporty_interview
 # GIF running the tests
 
 ![Proof of Tests Running](proof.gif)
+
+# CI
+
+A Github Action was implemented and can be run from the Actions tab in Github.
+It will run the current test.
