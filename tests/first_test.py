@@ -2,9 +2,9 @@ from support.base_test_case import BaseTestCase
 from support.pages.home_page import HomePage
 from support.pages.page import Page
 from support.pages.search_results_page import SearchResultsPage
+from support.pages.streamer_page import StreamerPage
 import time
 
-from support.pages.streamer_page import StreamerPage
 
 BaseTestCase.main(__name__, __file__)
 
@@ -14,9 +14,11 @@ class TestSimpleLogin(BaseTestCase):
         self.open("https://twitch.tv")
 
         # Accept cookies
+        self.wait_for_element_visible(Page.accept_cookies_button)
         self.click(Page.accept_cookies_button)
 
         self.click(HomePage.search_button)
+        self.wait_for_element_visible(HomePage.search_input)
         self.type(HomePage.search_input, "Starcraft II")
 
         self.click(Page.get_locator_by_title(topic="StarCraft II"))
