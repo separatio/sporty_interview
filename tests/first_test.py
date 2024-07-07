@@ -1,5 +1,6 @@
 from seleniumbase import BaseCase
 BaseCase.main(__name__, __file__)
+import time
 
 class TestSimpleLogin(BaseCase):
     def test_simple_login(self):
@@ -16,10 +17,23 @@ class TestSimpleLogin(BaseCase):
         self.type(search_input_locator, "Starcraft II")
 
         self.click("[title='StarCraft II']")
-        self.wait_for_element("//h1[text()='StarCraft II']")
+        self.assert_text_visible("Follow")
 
+        # Below this is still not working; need to fix
+        self.scroll_to_bottom()
         self.scroll_to_bottom()
 
-        # self.wait_for_element_clickable("//*[@role='list']/div[2]")
-        self.js_click("//*[@role='list']/div[0]")
-        # self.click("h1")
+        streamer_elements = self.find_visible_elements("article")
+        streamer_elements[2].click()
+        # In case an alert is shown, dismiss it
+        # Does not work for modals
+        # self.dismiss_alert()
+
+        # In case a modal pops up, close it
+        # The locator is not correct most likely
+        # Assuming that the close button has the same kind of locator
+        # self.click("button[data-a-target='modal-close-button']")
+
+        streamer_url = str(time.time())
+        self.assert_element_visible("[data-a-target='follow-button']")
+        self.save_screenshot(name=streamer_url, folder="./screenshots")

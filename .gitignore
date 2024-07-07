@@ -147,3 +147,5 @@ dmypy.json
 
 downloaded_files/
 latest_logs/
+screenshots/*
+!screenshots/.keep
