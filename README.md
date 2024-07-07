@@ -36,3 +36,7 @@ docker run -it sporty_interview
 - .github contains the CI Github Action
 - there are pre-commit hooks running at every commit
 - the drivers folder contains the chromedriver in case something goes wrong with what seleniumbase installs
+
+# GIF running the tests
+
+![Proof of Tests Running](proof.gif)
