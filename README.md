@@ -27,3 +27,12 @@ To use the dockerized version build and run the image:
 docker build . -t sporty_interview
 docker run -it sporty_interview
 ```
+
+# Structure
+
+- The support/pages folder contains the page objects
+- The support folder contains the pages folder and the setUp/ tearDown code for the tests
+- The tests folder contains the test required
+- .github contains the CI Github Action
+- there are pre-commit hooks running at every commit
+- the drivers folder contains the chromedriver in case something goes wrong with what seleniumbase installs
